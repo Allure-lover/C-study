@@ -658,6 +658,8 @@ void test696(){
     nj.print();
 }
 
+
+
 int main(){
     srand((unsigned int)time(NULL));
     // test61();
@@ -673,7 +675,7 @@ int main(){
     // test614(); //这个有操作，要再看一下
     // test615();
     // test695();
-    test6952();
+    // test6952();
     // test696();
     system("pause");
     return 0;
