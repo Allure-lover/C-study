@@ -404,6 +404,34 @@ exception：exception 是一个通用的异常基类，其他特定类型的异�
 总的来说，throw 语句的作用是在程序中的某个地方引发异常，并且可以将一个异常对象作为参数传递给 catch 块。这使得程序能够在异常发生时执行特定的处理代码，而不会导致程序崩溃。
 */
 
+//5
+/*
+程序首先从最内层的try块开始搜索匹配的catch块。也就是说，它会从最近的try块开始向外搜索。
+
+如果找到了匹配的catch块，程序会进入该catch块的处理逻辑。
+
+如果在内层的try块中没有找到匹配的catch块，程序会继续向外搜索包含它的外层try块，以寻找匹配的catch块。
+
+这个搜索过程会一直持续，直到找到匹配的catch块，或者如果在所有的try块中都找不到匹配的catch块，那么程序就会调用std::terminate()，这会导致程序异常终止。
+
+总的来说，C++会按照嵌套的try块层次从内向外地搜索匹配的catch块。在找到匹配的catch块之前，会依次检查每个try块中的catch块，直到找到匹配的为止
+*/
+
+//6
+void test956(){
+    cout << "开始" << endl;
+    try{
+        cout << "进入try块" << endl;
+        throw 999;
+        cout << "该语句不应执行" << endl;
+    }catch(int i){
+        cout << "捕获的异常为：" ;
+        cout << i << endl;
+    }
+    cout << "结束";
+}
+
+
 
 int main(){
     // test91();
@@ -416,7 +444,8 @@ int main(){
     // test99();
     // test910();
     // test951();
-    test952();
+    // test952();
+    test956();
     system("pause");
     return 0;
 }
