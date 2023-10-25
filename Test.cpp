@@ -82,11 +82,42 @@ void test4(){
     cout << value1 << "  " << value2 << endl;
 }
 
+#include<cstdio>
+int n=1;
+
+void func(int y,int *t)
+{  
+    static int x=4;
+    y=x+=2;
+    *t=++n;
+    printf("FUNC:x=%2d y=%2d n=%2d\n",x,y,n);
+}
+void test5()
+{
+    static int x=5;
+    int y;
+    y=n;
+    printf("MAIN:x=%2d y=%2d n=%2d\n",x,y,n);
+    func(x,&y);
+    printf("MAIN:x=%2d y=%2d n=%2d\n",x,y,n);
+    func(y,&x);
+}
+
+void test6(){
+    static int a = 2;
+    a+=2;
+    cout << a << endl;
+}
+
 int main(){
     // test1();
     // test2();
     // test3();    
-    test4();
+    // test4();
+    // test5();
+    test6();
+    test6();
+    test6();
     
     system("pause");
     return 0;
